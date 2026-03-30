@@ -497,9 +497,15 @@ footer {
                 response = 'Already a member? Log in here: <a href="login.html" target="_blank">Login</a>';
             } else if (userInput.includes('register')) {
                 response = 'New here? Register for an account: <a href="register.html" target="_blank">Register</a>';
-            } else {
-                response = 'Sorry, I didn’t understand that. Can you ask me something else?';
-            }
+            }else {
+    response = `
+        You can explore these pages:<br>
+        car <a href="car.html" target="_blank">Car Rental</a><br>
+        contact <a href="contact.html" target="_blank">Contact</a><br>
+        blog <a href="blog.html" target="_blank">Blog</a><br>
+        package <a href="package.html" target="_blank">Packages</a>
+    `;
+}
     
             return response;
         }
