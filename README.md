@@ -1,5 +1,5 @@
 # travel-website
-# PackYourBags 🌍✈️
+# PackYourBags
 
 PackYourBags is a travel website project developed using **HTML, CSS, JavaScript, and Node.js**.
 This website allows users to explore different travel destinations, view details about places, register/login, and navigate through multiple travel-related pages.
@@ -17,7 +17,7 @@ This website allows users to explore different travel destinations, view details
 
 ## Pages Included
 
-* `1.html`
+* `index.html`
 * `18.html`
 * `add.html`
 * `adventure.html`
