@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Explore beautiful travel destinations with us">
+    <meta name="keywords" content="travel, vacation, destination, explore">
+    <title>Tour Packages</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+
+body {
+    margin: 0;
+    padding: 0 80px; /* Add padding to left and right */
+    font-family: Arial, sans-serif;
+    color: white;
+    background: linear-gradient(to bottom, rgba(0,0,0,0.5), rgba(0,0,0,0.4)), 
+                url('https://thumbs.dreamstime.com/b/sunset-beach-vibes-tabby-cat-wearing-sunglasses-front-ocean-324436687.jpg');
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 15px 40px;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    z-index: 1000;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Slight shadow for a refined look */
+}
+
+.logo {
+    font-size: 28px;
+    font-weight: bold;
+    color: white;
+}
+
+.logo span {
+    color: #33d9b2;
+}
+
+.menu {
+    list-style: none;
+    display: flex;
+    gap: 30px;
+    margin: 0;
+}
+
+.menu a {
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+    padding-bottom: 8px;
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+.menu a:hover {
+    color: #33d9b2;
+    border-bottom: 1px solid #33d9b2;
+}
+
+.dropdown-menu, .submenu-list {
+    display: none;
+    position: absolute;
+    background: white;
+    padding: 10px;
+    list-style: none;
+    box-shadow: 0px 4px 6px rgba(0,0,0,0.1);
+}
+
+.dropdown:hover .dropdown-menu, .submenu:hover .submenu-list {
+    display: block;
+}
+
+.dropdown-menu a, .submenu-list a {
+    color: black;
+    display: block;
+    padding: 5px 10px;
+}
+
+.submenu {
+    position: relative;
+}
+
+.submenu-list {
+    left: 100%;
+    top: 0;
+}
+
+.nav-right {
+    display: flex;
+    gap: 3px;
+    align-items: center;
+    justify-content: flex-end;
+    padding-right: 80px;
+}
+
+.login-btn, .register-btn {
+    background-color: #33d9b2;
+    padding: 10px 20px;
+    border-radius: 5px;
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    transition: all 0.3s ease;
+    margin-left: 10px;
+}
+
+.login-btn:hover, .register-btn:hover {
+    background-color: #2bb18b;
+    transform: scale(1.05); /* Slight scale effect on hover */
+}
+
+.search-bar {
+    display: flex;
+    align-items: center;
+    background: white;
+    padding: 5px;
+    border-radius: 5px;
+    margin-left: 30px; /* Give some space between the search input and menu items */
+}
+
+.search-bar input {
+    border: none;
+    outline: none;
+    padding: 5px;
+}
+
+.search-bar button {
+    background: #33d9b2;
+    border: none;
+    padding: 5px;
+    cursor: pointer;
+}
+
+.container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    max-width: 75%;
+    padding: 1px 20px 20px 20px; /* Added padding to give space from the navbar */
+    margin: 0 auto; /* Center horizontally */
+    height: auto; /* Adjust container height */
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+}
+
+.card {
+    background: white;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: 0.3s;
+}
+
+.card:hover {
+    transform: scale(1.05);
+}
+
+.card img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+}
+
+.info {
+    padding: 15px;
+    text-align: center;
+}
+
+.info h2 {
+    font-size: 18px;
+    color: #333;
+    margin-bottom: 5px; 
+}
+
+.subtitle {
+    font-size: 14px;
+    color: #777;
+    margin-top: 0;
+}
+
+.best-time {
+    background: rgba(0, 0, 0, 0.7);
+    color: white;
+    font-size: 12px;
+    padding: 5px;
+    border-radius: 5px;
+    margin: 8px 0;
+}
+
+.price {
+    font-size: 16px;
+    color: #28a745;
+    font-weight: bold;
+}
+
+footer {
+    text-align: center;
+    padding-bottom: 20px;
+    margin-top: auto;
+    width: 100%;
+    padding-top: 150px;
+}
+
+.social-icons a {
+    color: white;
+    margin: 0 10px;
+}
+.intro {
+    text-align: center;
+    margin: 120px 0 60px 0;
+    color: white;
+}
+
+.intro h1 {
+    font-size: 36px;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.intro .pickup-line {
+    font-size: 20px;
+    font-style: italic;
+    margin-top: 10px;
+    color: #ffffff; /* Matching the color theme */
+}
+.intro span {
+   
+    color: #33d9b2;
+}
+.chatbot-button {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 60px;
+            height: 60px;
+            background: #33d9b2;
+            color: rgb(0, 0, 0);
+            border: none;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 30px;
+            cursor: pointer;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+        }
+
+        .chat-container {
+            position: fixed;
+            bottom: 80px;
+            right: 20px;
+            width: 300px;
+            height: 400px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+            display: none;
+            flex-direction: column;
+        }
+
+        .chat-header {
+            background: #33d9b2;
+            color: rgb(0, 0, 0);
+            padding: 10px;
+            text-align: center;
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        .chat-body {
+            flex-grow: 1;
+            padding: 10px;
+            overflow-y: auto;
+        }
+
+        .chat-input {
+            display: flex;
+            border-top: 1px solid #ccc;
+        }
+
+        .chat-input input {
+            flex-grow: 1;
+            padding: 10px;
+            border: none;
+            color: #000;
+        }
+
+        .chat-input button {
+            background: #33d9b2;
+            color: white;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+        }
+
+        /* Style for user messages */
+        .user-message {
+            background-color: #f1f1f1; /* Light gray background */
+            color: #333; /* Dark text color */
+            padding: 10px;
+            margin: 5px 0;
+            border-radius: 5px;
+            text-align: right;
+        }
+
+        /* Style for bot messages */
+        .bot-message {
+            background-color: #33d9b2; /* Bot background color */
+            color: white; /* White text for bot */
+            padding: 10px;
+            margin: 5px 0;
+            border-radius: 5px;
+            text-align: left;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">PACKYOUR<span>BAGS</span></div>
+            <ul class="menu">
+                <li class="dropdown">
+                    <a href="#">Holiday &#9662;</a>
+                    <ul class="dropdown-menu">
+                        <li class="submenu">
+                            <a href="#">India &#9656;</a>
+                            <ul class="submenu-list">
+                                <li><a href="adventure.html">Adventure</a></li>
+                                <li><a href="#">Romantic</a></li>
+                                <li><a href="#">Beaches</a></li>
+                                <li><a href="#">Family</a></li>
+                                <li><a href="#">Hill Station</a></li>
+                            </ul>
+                        </li>
+                        <li class="submenu">
+                            <a href="#">International &#9656;</a>
+                            <ul class="submenu-list">
+                                <li><a href="">Adventure</a></li>
+                                <li><a href="#">Romantic</a></li>
+                                <li><a href="#">Beaches</a></li>
+                                <li><a href="#">Family</a></li>
+                                <li><a href="#">Hill Station</a></li>
+                            </ul>
+                        </li>
+                        <li class="submenu">
+                            <a href="#">Hotels &#9656;</a>
+                            <ul class="submenu-list">
+                                <li><a href="#">Luxury</a></li>
+                                <li><a href="#">Budget</a></li>
+                                <li><a href="#">Resorts</a></li>
+                                <li><a href="#">Boutique</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+                <li><a href="dest.html">Packages</a></li>
+                <li><a href="car.html">Car Rental</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="blog.html">Blog</a></li>
+            </ul>
+            <div class="search-bar">
+                <input type="text" placeholder="Search destination...">
+                <button>Search</button>
+            </div>
+            <div class="nav-right">
+                <a href="login.html" class="login-btn">Log In</a>
+                <a href="register.html" class="register-btn">Register</a>
+            </div>
+        </nav>
+    </header>
+    <div class="intro">
+        <h1>Explore the <span>ADVENTURE</span></h1>
+        <p class="pickup-line">Your <span>adventure </span>of a lifetime awaits - <b>PACKYOUR<SPAN>BAGS</SPAN></b>, let's go!</p>
+    </div>
+    <div class="container">
+        <div class="card">
+            <img src="https://ihplb.b-cdn.net/wp-content/uploads/2014/06/paragliding-bir-billing.jpg" alt="Darjeeling">
+            <div class="info">
+                <h2>DARJEELING</h2>
+                <p class="subtitle">Tour Packages</p>
+                <p class="best-time">Best time: Apr - Jun</p>
+                <p class="price">Starting from ₹12000</p>
+                <a href="detailsdar.html" class="view-details">View Details</a>
+            </div>
+        </div>
+
+        <div class="card">
+            <img src="https://res.klook.com/images/fl_lossy.progressive,q_65/c_fill,w_1295,h_860,f_auto/w_80,x_15,y_15,g_south_west,l_klook_water/activities/mg2e0fssuvit7giykhyf/TheGiantSwinginRishikesh.jpg" alt="Coorg">
+            <div class="info">
+                <h2>COORG</h2>
+                <p class="subtitle">Tour Packages</p>
+                <p class="best-time">Best time: Sep - Dec</p>
+                <p class="price">Starting from ₹30500</p>
+                <a href="detailscoo.html" class="view-details">View Details</a>
+            </div>
+        </div>
+
+        <div class="card">
+            <img src="https://www.avis.co.in/blog/wp-content/uploads/2018/08/featured-images-600x375.jpg" alt="Goa">
+            <div class="info">
+                <h2>GOA</h2>
+                <p class="subtitle">Tour Packages</p>
+                <p class="best-time">Best time: Jan - Jun</p>
+                <p class="price">Starting from ₹6999</p>
+                <a href="deailsgoa.html" class="view-details">View Details</a>
+            </div>
+        </div>
+
+        <div class="card">
+            <img src="https://www.tusktravel.com/blog/wp-content/uploads/2023/09/Adventure-Places-in-South-India.jpg" alt="Ooty">
+            <div class="info">
+                <h2>OOTY</h2>
+                <p class="subtitle">Tour Packages</p>
+                <p class="best-time">Best time: Dec - Mar</p>
+                <p class="price">Starting from ₹6500</p>
+                <a href="detailsooty.html" class="view-details">View Details</a>
+            </div>
+        </div>
+
+        
+
+        
+    </div>
+
+    <button class="chatbot-button" onclick="toggleChat()">🤖 </button>
+
+    <div class="chat-container" id="chatContainer">
+        <div class="chat-header">Chatbot</div>
+        <div class="chat-body" id="chatBody"></div>
+        <div class="chat-input">
+            <input type="text" id="chatInput" placeholder="Type a message...">
+            <button onclick="sendMessage()">Send</button>
+        </div>
+    </div>
+
+    <footer>
+        <div class="social-icons">
+            <a href="https://www.facebook.com" target="_blank"><i class="fab fa-facebook"></i></a>
+            <a href="https://www.twitter.com" target="_blank"><i class="fab fa-twitter"></i></a>
+            <a href="https://www.instagram.com" target="_blank"><i class="fab fa-instagram"></i></a>
+            <a href="https://www.linkedin.com" target="_blank"><i class="fab fa-linkedin"></i></a>
+            <a href="https://www.youtube.com" target="_blank"><i class="fab fa-youtube"></i></a>
+        </div>
+        <p>&copy; 2025 PackYourBags. All rights reserved.</p>
+    </footer>
+
+    <script>
+        function toggleChat() {
+            var chatContainer = document.getElementById('chatContainer');
+            chatContainer.style.display = (chatContainer.style.display === 'none' || chatContainer.style.display === '') ? 'flex' : 'none';
+        }
+    
+        function sendMessage() {
+            var userMessage = document.getElementById('chatInput').value.trim();
+            if (userMessage) {
+                var chatBody = document.getElementById('chatBody');
+    
+                // User message
+                var userMessageDiv = document.createElement('div');
+                userMessageDiv.classList.add('user-message');
+                userMessageDiv.textContent = userMessage;
+                chatBody.appendChild(userMessageDiv);
+    
+                // Bot response
+                var botMessageDiv = document.createElement('div');
+                botMessageDiv.classList.add('bot-message');
+                botMessageDiv.innerHTML = getChatbotResponse(userMessage.toLowerCase()); // Use innerHTML for links
+                chatBody.appendChild(botMessageDiv);
+    
+                chatBody.scrollTop = chatBody.scrollHeight;
+                document.getElementById('chatInput').value = '';
+            }
+        }
+    
+        function getChatbotResponse(userInput) {
+            let response = '';
+    
+            if (userInput.includes('package') || userInput.includes('tour')) {
+                response = 'You can explore our packages here: <a href="package.html" target="_blank">Package Details</a>';
+            } else if (userInput.includes('car')) {
+                response = 'Looking for a car rental? Visit: <a href="car.html" target="_blank">Car Rental</a>';
+            } else if (userInput.includes('contact')) {
+                response = 'For inquiries, reach us through: <a href="contact.html" target="_blank">Contact Us</a>';
+            } else if (userInput.includes('adventure')) {
+                response = 'If you love adventure, check out: <a href="adventure.html" target="_blank">Adventure Packages</a>';
+            } else if (userInput.includes('login')) {
+                response = 'Already a member? Log in here: <a href="login.html" target="_blank">Login</a>';
+            } else if (userInput.includes('register')) {
+                response = 'New here? Register for an account: <a href="register.html" target="_blank">Register</a>';
+            } else {
+                response = 'Sorry, I didn’t understand that. Can you ask me something else?';
+            }
+    
+            return response;
+        }
+    </script>
+    </body>
+    </html>
+    
+ 
